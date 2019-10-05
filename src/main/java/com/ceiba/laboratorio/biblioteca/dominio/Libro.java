@@ -17,6 +17,9 @@ public class Libro {
 	private String isbn;
 	private String titulo;
 	private int anio;
+	private int cantidadPrestamo;
+	private int total;
+	
 	/**
 	 * Método constructor de la clase en cuestión.
 	 * 
@@ -36,6 +39,40 @@ public class Libro {
 		this.titulo = titulo;
 		this.anio = anio;
 	}
+	
+	
+	/**
+	 * Método que retorna el valor del atributo cantidad
+	 * 
+	 * @author	Jeison Julián Barbosa Serna<br>
+	 * 			Email: jjbarser@gmail.com<br>
+	 *
+	 * @date	5/10/2019
+	 * @version 1.0
+	 * 
+	 * @return 	cantidad
+	 */
+	public int getCantidad() {
+		return cantidadPrestamo;
+	}
+
+	
+	/**
+	 * Método que permite almacenar el valor cantidad en el atributo cantidad
+	 * 
+	 * @author	Jeison Julián Barbosa Serna<br>
+	 * 			Email: jjbarser@gmail.com<br>
+	 *
+	 * @date	5/10/2019
+	 * @version 1.0
+	 * 
+	 * @param cantidad el valor a asignar al atributo cantidad
+	 */
+	public void setCantidad(int cantidad) {
+		this.cantidadPrestamo = cantidad;
+	}
+
+
 	
 	/**
 	 * Método que retorna el valor del atributo isbn
