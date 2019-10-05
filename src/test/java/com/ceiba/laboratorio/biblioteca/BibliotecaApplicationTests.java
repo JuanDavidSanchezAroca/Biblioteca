@@ -1,4 +1,4 @@
-package com.ceiba.laboratorio.biblioteca.Biblioteca;
+package com.ceiba.laboratorio.biblioteca;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

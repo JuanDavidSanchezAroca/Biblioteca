@@ -8,10 +8,10 @@
 		<version>2.1.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ceiba.laboratorio.biblioteca</groupId>
-	<artifactId>Biblioteca</artifactId>
+	<groupId>com.ceiba.laboratorio</groupId>
+	<artifactId>biblioteca</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Biblioteca</name>
+	<name>biblioteca</name>
 	<description>Blibioteca laboratorio INDRA</description>
 
 	<properties>
