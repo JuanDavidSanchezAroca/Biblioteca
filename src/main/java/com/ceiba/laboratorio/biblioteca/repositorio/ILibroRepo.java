@@ -3,6 +3,9 @@
  */
 package com.ceiba.laboratorio.biblioteca.repositorio;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ceiba.laboratorio.biblioteca.entity.Libro;
 
 /**
  * @author	Jeison Julián Barbosa Serna<br>
@@ -12,6 +15,6 @@ package com.ceiba.laboratorio.biblioteca.repositorio;
  * @version 1.0
  *
  */
-public interface ILibroRepo {
+public interface ILibroRepo extends JpaRepository<Libro, Integer>{
 
 }
