@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,60 +8,66 @@
     <link rel="icon" href="image/icon_tittle.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css" type="text/css" media="all">
     <title>Biblioteca - Ceiba</title>
-      <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-              
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </head>
+
 <body>
-        <nav>
-                <div class="nav-wrapper">
-                  <a id="text_header" href="index.html" class="brand-logo"> 
-                       Biblioteca</a>
-                  <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a class="text_option" href="hacer_reserva.html">Haz una Reserva</a></li>
-                    <li><a class="text_option" href="agregar_libro.html">Agregar un Libro</a></li>
-                    <li><a class="text_option" href="eliminar_libro.html">Eliminar un libro</a></li>
-                    <li><a class="text_option" href="consultar.html">Consultar libros</a></li>
-                    <li><a class="text_option" href="registrarse.html">Registrarse</a></li>
-                  </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a id="text_header" href="index.html" class="brand-logo">
+                Biblioteca</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="text_option" href="hacer_reserva.html">Haz una Reserva</a></li>
+                <li><a class="text_option" href="agregar_libro.html">Agregar un Libro</a></li>
+                <li><a class="text_option" href="eliminar_libro.html">Eliminar un libro</a></li>
+                <li><a class="text_option" href="consultar.html">Consultar libros</a></li>
+                <li><a class="text_option" href="registrarse.html">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <h3>Ingrese los datos</h3>
+    </div>
+    <div class="row">
+        <form  id="form_libro" class="col s12" action="localhost:8442/libros/" method="POST" onsubmit="createLibro">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="titulo" type="text" class="validate" name="titulo">
+                    <label for="titulo">Titulo del Libro</label>
                 </div>
-              </nav>
-              <div>
-                  <h3>Ingrese los datos</h3>
-              </div>
-              <div class="row">
-                    <form class="col s12">
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <input id="titulo" type="text" class="validate">
-                          <label for="titulo">Titulo del Libro</label>
-                        </div>
-                        <div class="input-field col s6">
-                          <input id="isbn" type="text" class="validate">
-                          <label for="isbn">ISBN del Libro</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <input id="cantidad" type="text" class="validate">
-                          <label for="cantidad">Ingrese la cantidad de libros que entrarán al sistema</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <input id="email" type="email" class="validate">
-                          <label for="email">Email</label>
-                        </div>
-                      </div>
-                      <div class="row valing-wrapper" >
-                            <button class="btn waves-effect waves-light center-aling" type="submit" name="action">Agregar Libro(s)
-                                  </button>
-                      </div>
-                    </form>
-                  </div>
+                <div class="input-field col s6">
+                    <input id="isbn" type="text" class="validate" name="isbn">
+                    <label for="isbn">ISBN del Libro</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="cantidad" type="text" class="validate" name="total">
+                    <label for="cantidad">Ingrese la cantidad de libros que entrarán al sistema</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="fehca" type="email" class="validate" name="fecha">
+                    <label for="fecha">Ingrese la fecha en que llego el libro</label>
+                </div>
+            </div>
+            <div class="row valing-wrapper">
+                <button  id="btn_agregar_libro"class="btn waves-effect waves-light center-aling" type="submit" name="action">Agregar Libro(s)
+                </button>
+            </div>
+        </form>
+    </div>
 
 </body>
+
 </html>

@@ -7,13 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="image/icon_tittle.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css" type="text/css" media="all">
+    
     <title>Biblioteca - Ceiba</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Inclusión de JQuery-->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 
+
+    <!-- Uso de Datatable-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+        <script type="text/javascript" src="js/biblioteca.js"></script> 
 </head>
 
 <body>
@@ -31,61 +45,20 @@
         </div>
     </nav>
     <div>
-        <h5>Lista de Libros prestados</h5>
+        <h5>Listado de Libros</h5>
     </div>
-    <table class="striped">
+    <table id="tabla_disponibles" class="striped">
         <thead>
             <tr>
+                <th>idLibro</th>
+                <th>Titulo del Libro</th>
                 <th>ISBN del Libro</th>
-                <th>Usuario Responsable</th>
-                <th>Fecha Devolución</th>
+                <th>Total de existencias</th>
+                <th>Canitad prestados</th>
+                <th>Fecha</th>
             </tr>
         </thead>
-
-        <tbody>
-            <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-            </tr>
-            <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>$3.76</td>
-            </tr>
-            <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>$7.00</td>
-            </tr>
-        </tbody>
     </table>
-    <div>
-        <h5>Listado de Libros Disponibles</h5>
-    </div>
-    <table class="striped">
-            <thead>
-                <tr>
-                    <th>ISBN del Libro</th>
-                    <th>Usuario Responsable</th>
-                </tr>
-            </thead>
-    
-            <tbody>
-                <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                </tr>
-                <tr>
-                    <td>Alan</td>
-                    <td>Jellybean</td>
-                </tr>
-                <tr>
-                    <td>Jonathan</td>
-                    <td>Lollipop</td>
-                </tr>
-            </tbody>
-        </table>
 </body>
 
 </html>
