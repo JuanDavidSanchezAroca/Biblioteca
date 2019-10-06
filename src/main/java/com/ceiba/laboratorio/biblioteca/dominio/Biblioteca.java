@@ -18,8 +18,6 @@ public class Biblioteca {
 
 
 
-
-
 	/**
 	 * 
 	 * Permite validar si el texto ingresado es un palindromo

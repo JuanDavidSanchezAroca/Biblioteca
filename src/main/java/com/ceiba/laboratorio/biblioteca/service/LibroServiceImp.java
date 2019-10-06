@@ -3,6 +3,7 @@
  */
 package com.ceiba.laboratorio.biblioteca.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +68,33 @@ public class LibroServiceImp implements ILibroService {
 		return false;
 
 	}
+
+	@Override
+	public boolean disponibilidad(String isbn) {
+		Libro libro= libroDao.findByIsbn(isbn);
+		if(libro!= null){
+			if(libro.getTotal()>libro.getCantidad()){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public List<Libro> listAllActivate() {
+		List<Libro> libros = libroDao.findAll();
+		ArrayList<Libro> listActivate = new ArrayList<Libro>(); 
+		
+		for (int i = 0; i < libros.size(); i++) {
+			if(libros.get(i).getCantidad()<libros.get(i).getTotal()){
+				listActivate.add(libros.get(i));
+			}
+		}
+		return listActivate;
+	}
+	
+	
+	
+	
 
 }
