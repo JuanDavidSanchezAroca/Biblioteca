@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.ceiba.laboratorio.biblioteca.repositorio;
+package com.ceiba.laboratorio.biblioteca.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.ceiba.laboratorio.biblioteca.entity.Libro;
 
@@ -15,6 +15,6 @@ import com.ceiba.laboratorio.biblioteca.entity.Libro;
  * @version 1.0
  *
  */
-public interface ILibroRepo extends JpaRepository<Libro, Integer>{
+public interface ILibroRepo extends CrudRepository<Libro, Integer>{
 
 }
