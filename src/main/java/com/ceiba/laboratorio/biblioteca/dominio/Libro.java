@@ -34,7 +34,6 @@ public class Libro {
 	 * @param anio
 	 */
 	public Libro(String isbn, String titulo, int anio) {
-		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.anio = anio;
