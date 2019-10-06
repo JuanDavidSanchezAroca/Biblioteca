@@ -19,23 +19,23 @@ public class Biblioteca {
 
 
 
+
 	/**
-	 * 	
-	 * Método que permite validar si un isbn es palindromo
-	 *
-	 * @author	Jeison Julián Barbosa Serna<br>
-	 * 			Email: jjbarser@gmail.com<br>
 	 * 
-	 * @date	5/10/2019
+	 * Permite validar si el texto ingresado es un palindromo
+	 *
+	 * @author Jeison Julián Barbosa Serna<br>
+	 *         Email: jjbarser@gmail.com<br>
+	 * 
+	 * @date 31/08/2019
 	 * @version 1.0
 	 *
-	 * @param isbn
-	 * @return
+	 * @param isbn, código que identifica el libro @return, verdadero cuando el isbn es palindromo ej: 1221
 	 */
 	public boolean esPalindromo(String isbn) {
-			return isbn.equals(new StringBuilder(isbn).reverse().toString());
+		return isbn.equals(new StringBuilder(isbn).reverse().toString());
 	}
-	
+
 	/**
 	 * 
 	 * Permite validar si el isbn cumple con una cantidad máxima en la suma de sus digitos como restricción de fecha de entrega
@@ -65,7 +65,7 @@ public class Biblioteca {
 		return false;
 
 	}
-	
+
 	/**
 	 * 
 	 * Genera fecha de entrega de acuerdo a una cantidad de días posterior a el día de solicitud sin contar domingos
@@ -100,6 +100,4 @@ public class Biblioteca {
 
 		return cal.getTime();
 	}
-
-
 }

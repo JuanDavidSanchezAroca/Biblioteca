@@ -20,7 +20,8 @@ public interface ILibroService {
 	 public List<Libro> findAll();
 	 public Libro addLibro(Libro libro);
 	 public Libro findByIsbn(String isbn);
-	 public void delete (String isbn);
+	 public boolean delete (String isbn);
+	 
 	 
 	 
 }

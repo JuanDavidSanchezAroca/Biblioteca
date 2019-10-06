@@ -20,4 +20,6 @@ import com.ceiba.laboratorio.biblioteca.entity.Libro;
 public interface ILibroRepo extends JpaRepository<Libro, Integer>{
 	
 	Libro findByIsbn(String isbn);
+	
+	
 }

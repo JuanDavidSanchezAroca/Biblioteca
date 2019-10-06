@@ -28,7 +28,7 @@ public class Libro implements Serializable{
 	public static final String BUSCAR_LIBRO="buscarLibro";
 	public static final String ACTUALIZAR_LIBRO="actualizarLibro";
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idLibro;
 	
 	@Column(name="titulo")
