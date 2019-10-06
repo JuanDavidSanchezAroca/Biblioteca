@@ -126,38 +126,31 @@ public class NegocioEJB {
 	 */
 	public void agregarPrestamo(Usuario_x_Libro prestamo) {
 
-		prestamo.setFechaSolicitud(sumarDiasAFecha(prestamo.getFechaSolicitud(), 1));
-		prestamo.setFechaMaxima(sumarDiasAFecha(prestamo.getFechaMaxima(), 1));
+		prestamo.setFechaSolicitud(sumarDiasAFecha(new Date(), 1));
+		prestamo.setFechaMaxima(sumarDiasAFecha(new Date(), 1));
 		if (!isPalindorme(String.valueOf(prestamo.getLibro()))) {
-			if (!isSuma(prestamo.getLibro())) {
-				if (!validarFecha(prestamo.getFechaSolicitud(), prestamo.getFechaMaxima())) {
-					Libro l = consultarLibro(prestamo.getLibro());
-					if (l.getCantidad() + 1 <= l.getTotal()) {
-						if(getDiaSemana(prestamo.getFechaMaxima()).equals("Domingo")) {
-							prestamo.setFechaMaxima(sumarDiasAFecha(prestamo.getFechaMaxima(), 1));
-						}
-						l.setCantidad(l.getCantidad() + 1);
-						em.merge(l);
-						em.persist(prestamo);
-					}
-				}
-				System.out.println("error 15 dias");
+			if (isSuma(prestamo.getLibro())) {
+				prestamo.setFechaMaxima(sumarDiasAFecha(new Date(), 15));
+			}else {
+				prestamo.setFechaMaxima(null);
 			}
-			System.out.println("error 30");
+			Libro l = consultarLibro(prestamo.getLibro());
+			if (l.getCantidad() + 1 <= l.getTotal()) {
+				if (getDiaSemana(prestamo.getFechaMaxima()).equals("Domingo")) {
+					prestamo.setFechaMaxima(sumarDiasAFecha(prestamo.getFechaMaxima(), 1));
+				}
+				l.setCantidad(l.getCantidad() + 1);
+				em.merge(l);
+				em.persist(prestamo);
+			}
+
+			System.out.println("error 15 dias");
+
 		}
 		System.out.println("error palindromo");
 	}
 
-	/**
-	 * Metodo que valida la cantidad maxima de dias
-	 */
-	public boolean validarFecha(Date fechaActual, Date fechaEntrega) {
-		int dias = diferenciaDias(fechaActual, fechaEntrega);
-		int cantDomingos = dias / 7;
-		dias = dias - cantDomingos;
-		System.out.println("cantidad de dias" + dias);
-		return dias > 15 ? true : false;
-	}
+
 
 	/**
 	 * Metodo que calcula la diferencia de dias
@@ -175,9 +168,10 @@ public class NegocioEJB {
 	public static Date sumarDiasAFecha(Date fecha, int dias) {
 		if (dias == 0)
 			return fecha;
+		int cantidadDomingos= dias / 7;
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(fecha);
-		calendar.add(Calendar.DAY_OF_YEAR, dias);
+		calendar.add(Calendar.DAY_OF_YEAR, dias+cantidadDomingos);
 		return calendar.getTime();
 	}
 
@@ -229,7 +223,7 @@ public class NegocioEJB {
 		}
 		return Valor_dia;
 	}
-	
+
 	public Date generarFechaEntrega(int dias, Date fechaSolicitud) {
 
 		Calendar cal = Calendar.getInstance();
@@ -250,17 +244,17 @@ public class NegocioEJB {
 
 		return cal.getTime();
 	}
-	
-	public List<Libro> listaLibros(){
-		Query query= em.createNamedQuery(Libro.DISPONIBLES_LIBRO);
+
+	public List<Libro> listaLibros() {
+		Query query = em.createNamedQuery(Libro.DISPONIBLES_LIBRO);
 		List<Libro> res = query.getResultList();
 		return res;
 	}
-	
-	public List<Usuario_x_Libro> listaPrestamo(){
-		Query query= em.createNamedQuery(Usuario_x_Libro.PRESTAMOS);
+
+	public List<Usuario_x_Libro> listaPrestamo() {
+		Query query = em.createNamedQuery(Usuario_x_Libro.PRESTAMOS);
 		List<Usuario_x_Libro> res = query.getResultList();
 		return res;
-		
+
 	}
 }
