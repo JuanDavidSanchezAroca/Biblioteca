@@ -7,19 +7,21 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="usuarioxlibro")
+@NamedQueries({@NamedQuery(name=Usuario_x_Libro.PRESTAMOS,query="select p from Usuario_x_Libro p ")
+})
 public class Usuario_x_Libro implements Serializable{
 
+	
+	public static final String PRESTAMOS="prestamos";
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idUsuarioLibro;
 	
-    @ManyToOne
-    @JoinColumn(name="idLibro")
-	private Libro libro;
+	@Column(name="libro")
+	private String libro;
 	
-    @ManyToOne
-    @JoinColumn(name="idUsuario")
-	private Usuario usuario;
+	@Column(name="nombre")
+	private String usuario;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fechaSolicitud;
@@ -41,35 +43,6 @@ public class Usuario_x_Libro implements Serializable{
 		this.idUsuarioLibro = idUsuarioLibro;
 	}
 
-	
-
-	/**
-	 * @return the libro
-	 */
-	public Libro getLibro() {
-		return libro;
-	}
-
-	/**
-	 * @param libro the libro to set
-	 */
-	public void setLibro(Libro libro) {
-		this.libro = libro;
-	}
-
-	/**
-	 * @return the usuario
-	 */
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	/**
-	 * @param usuario the usuario to set
-	 */
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 	/**
 	 * @return the fechaSolicitud
@@ -98,6 +71,35 @@ public class Usuario_x_Libro implements Serializable{
 	public void setFechaMaxima(Date fechaMaxima) {
 		this.fechaMaxima = fechaMaxima;
 	}
+
+	/**
+	 * @return the libro
+	 */
+	public String getLibro() {
+		return libro;
+	}
+
+	/**
+	 * @param libro the libro to set
+	 */
+	public void setLibro(String libro) {
+		this.libro = libro;
+	}
+
+	/**
+	 * @return the usuario
+	 */
+	public String getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 	
 }

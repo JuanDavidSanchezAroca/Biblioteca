@@ -7,14 +7,16 @@ import javax.persistence.*;
 
 @Entity(name="libro")
 @NamedQueries({@NamedQuery(name="hola",query="select l from libro l"),
-		@NamedQuery(name=Libro.BUSCAR_LIBRO, query="select l from libro l where l.isbn = ?1 and l.titulo = ?2"),
-		@NamedQuery(name=Libro.ACTUALIZAR_LIBRO, query = "update libro l set l.total= ?1 where l.isbn = ?2 and l.titulo = ?3")
+		@NamedQuery(name=Libro.BUSCAR_LIBRO, query="select l from libro l where l.isbn = ?1"),
+		@NamedQuery(name=Libro.ACTUALIZAR_LIBRO, query = "update libro l set l.total= ?1 where l.isbn = ?2 and l.titulo = ?3"),
+		@NamedQuery(name=Libro.DISPONIBLES_LIBRO, query = "select l  from libro l where  l.cantidad < l.total")
 })
 public class Libro implements Serializable{
 
 	
 	public static final String BUSCAR_LIBRO="buscarLibro";
 	public static final String ACTUALIZAR_LIBRO="actualizarLibro";
+	public static final String DISPONIBLES_LIBRO="librosDisponibles";
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idLibro;
