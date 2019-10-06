@@ -16,11 +16,18 @@ import com.ceiba.laboratorio.biblioteca.entity.Libro;
  *
  */
 public interface ILibroService {
-
+	
 	 public List<Libro> findAll();
+	 
 	 public Libro addLibro(Libro libro);
+	 
 	 public Libro findByIsbn(String isbn);
+	 
 	 public boolean delete (String isbn);
+	 
+	 public boolean disponibilidad(String isbn);
+	 
+	 public List<Libro> listAllActivate();
 	 
 	 
 	 

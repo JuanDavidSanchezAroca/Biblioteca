@@ -18,45 +18,49 @@ import com.ceiba.laboratorio.biblioteca.entity.Libro;
 import com.ceiba.laboratorio.biblioteca.service.ILibroService;
 
 /**
- * @author	Jeison Julián Barbosa Serna<br>
- * 			Email: jjbarser@gmail.com<br>
+ * @author Jeison Julián Barbosa Serna<br>
+ *         Email: jjbarser@gmail.com<br>
  * 
- * @date	5/10/2019
+ * @date 5/10/2019
  * @version 1.0
  *
  */
 @RestController
 @RequestMapping("/libros")
 public class ControllerLibro {
-	
+
 	@Autowired
 	private ILibroService libroService;
-	
+
 	@GetMapping
-	public List<Libro> index(){
+	public List<Libro> index() {
 		return libroService.findAll();
 	}
-	
+
 	@PostMapping
-	public Libro create(@RequestBody Libro libro){
+	public Libro create(@RequestBody Libro libro) {
 		return libroService.addLibro(libro);
 	}
-	
+
 	@GetMapping("/{isbn}")
-	public Libro findIsbn(@PathVariable String isbn){
-		return libroService.findByIsbn(isbn);	
+	public Libro findIsbn(@PathVariable String isbn) {
+		return libroService.findByIsbn(isbn);
 	}
-	
+
 	@DeleteMapping("/{isbn}")
-	public boolean deleteByIsbn(@PathVariable String isbn){
+	public boolean deleteByIsbn(@PathVariable String isbn) {
 		return libroService.delete(isbn);
 	}
 
+	@GetMapping("/ds/{isbn}")
+	public boolean getDisponibilidad(@PathVariable String isbn) {
+		return libroService.disponibilidad(isbn);
+	}
 	
-	
-	
-	
+	@GetMapping("/list_disponibles")
+	public List<Libro> listarDisponibles() {
+		return libroService.listAllActivate();
+	}
 	
 
-	
 }
